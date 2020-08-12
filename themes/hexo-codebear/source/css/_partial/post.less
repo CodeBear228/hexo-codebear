@@ -1,0 +1,144 @@
+.post-main {
+  display: flex;
+  align-items: flex-start;
+
+  @media screen and (max-width: 992px) {
+    flex-wrap: wrap;
+  }
+
+  .post-left {
+    width: calc(75% - 15px);
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
+  }
+
+  .post-right {
+    position: sticky;
+    top: 75px;
+    margin-left: 15px;
+    padding: 15px;
+    width: 25%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-size: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.08);
+
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+
+    ol {
+      margin: 0;
+      list-style: none;
+      padding-inline-start: 0;
+      color: #8590a6;
+
+      ol {
+        padding-inline-start: 15px;
+      }
+
+      li {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        a {
+          text-decoration: none;
+          color: #8590a6;
+          &:hover {
+            color: #ff4c4c;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.post-container {
+  font-size: 16px;
+  margin-bottom: 16px;
+  padding: 15px 20px 10px 20px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.08);
+
+  .post-link {
+    cursor: pointer;
+    text-decoration: none;
+
+    .post-title {
+      color: #333;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .post-content {
+      color: #666666;
+      padding-top: 10px;
+      font-size: 15px;
+
+      .post-readmore {
+        display: inline-block;
+      }
+
+      &:hover {
+        color: #1f8dfb;
+      }
+
+      &:hover > .post-readmore::after {
+        border-left: 8px solid #1f8dfb;
+      }
+
+      .post-readmore::after {
+        content: "";
+        display: inline-block;
+        margin-left: 5px;
+        height: 0;
+        width: 0;
+        border-top: 5px solid transparent;
+        border-left: 8px solid #666666;
+        border-bottom: 5px solid transparent;
+      }
+    }
+
+    &:first-child:hover > div {
+      color: #1f8dfb;
+    }
+  }
+
+  .post-meta {
+    margin-top: 5px;
+  }
+
+  .post-tag {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #ff4c4c;
+    background-color: #ffecec;
+    border-radius: 15px;
+    cursor: pointer;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #ff6c6c;
+    }
+  }
+
+  .post-time {
+    float: right;
+    font-size: 15px;
+    color: #bababa;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}

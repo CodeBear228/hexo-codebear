@@ -1,0 +1,41 @@
+<div class="index-container">
+  <div class="index-left">
+    <section>
+      <% page.posts.forEach(function (post) { %>
+      <article class="post-container">
+        <a class="post-link" href="<%- url_for(post.path) %>">
+          <div class="post-title">
+            <!-- 判断有分类就加上[]分类标示 -->
+            <% if( post.categories.data[0] ) { %>[<%=
+            post.categories.data[0].name %>]&nbsp;<% } %><%= post.title %>
+          </div>
+        </a>
+        <a class="post-link" href="<%- url_for(post.path) %>">
+          <div class="post-content">
+            <%- truncate(strip_html(post.content), {length: 250, omission:
+            '...'})%>
+            <span class="post-readmore">&nbsp;阅读全文</span>
+          </div>
+        </a>
+        <div class="post-meta">
+          <% post.tags && post.tags.data.forEach(function (tag) { %>
+          <div class="post-tag"><%= tag.name %></div>
+          <% }) %>
+          <span class="post-time"><%- date(post.date, "YYYY-MM-DD") %></span>
+        </div>
+      </article>
+      <% }) %>
+    </section>
+    <%- partial('_partial/paginator') %>
+  </div>
+  <div class="index-right">
+    <div class="index-categories">
+      <div class="index-right-title">文章分类：</div>
+      <%- list_categories() %>
+    </div>
+    <div class="index-tags">
+      <div class="index-right-title">文章标签：</div>
+      <%- list_tags({show_count : false}) %>
+    </div>
+  </div>
+</div>

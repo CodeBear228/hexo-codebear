@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header-content">
+    <div>
+      <div class="header-title"><%= config.title %></div>
+      <div class="header-nav">
+        <!-- 循环遍历menu -->
+        <% for (name in theme.menu) { %>
+        <div
+          class="nav-item <% if( ('/' + path.slice(0,-11)) === theme.menu[name] ) { console.log(path,theme.menu[name])%>select<% } %>"
+        >
+          <a href="<%- url_for(theme.menu[name]) %>" class="nav-item-link"
+            ><%- __('Menu.' + name) %></a
+          >
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <div class="header-text">Stay hungry Stay foolish.</div>
+  </div>
+</header>

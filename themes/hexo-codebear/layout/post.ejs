@@ -1,0 +1,18 @@
+<div class="post-main">
+  <div class="post-left">
+    <article class="post-container">
+      <div class="post-title">
+        <h2 class="title"><%= page.title %></h2>
+      </div>
+      <div class="post-meta">
+        <span class="post-time"><%- date(page.date, "YYYY-MM-DD") %></span>
+      </div>
+      <div class="post-content">
+        <%- page.content %>
+      </div>
+    </article>
+  </div>
+  <div class="post-right">
+    <%- toc(page.content, {list_number: false}) %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+@import "_partial/header";
+@import "_partial/post";
+@import "_partial/paginator";
+@import "./highlight";
+@import "./index";
+
+body {
+  margin: 0;
+  background-color: #f4f4f4;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+// 解决a标签英文过长不换行的问题
+a {
+  word-break: break-all;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+// 巧妙神奇的方法，处理了当fixed导航栏遇到了a标签的锚点跳转定位被遮盖的问题
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: -72px;
+  padding-top: 72px;
+}
+
+.container {
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 75px 15px 20px 15px;
+}
